@@ -1,15 +1,26 @@
 import '../css dosyaları/home.css'
 import { useConser } from '../ContextProvider';
-import { useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useWeather } from '../weatherProvider';
+import { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 
 export default function Home() {
-  const { consers, loading, fetchConsers } = useConser();
+  const { consers, loading, fetchConsers, artists, fetchArtists } = useConser();
+  const { handleEventClick } = useWeather();
+  const navigate = useNavigate();
+  const [showArtistsDropdown, setShowArtistsDropdown] = useState(false);
 
   useEffect(() => {
     fetchConsers();
-    // eslint-disable-next-line
+    fetchArtists();
   }, []);
+
+  const handleEventCardClick = async (event) => {
+    // Önce hava durumunu çekiyoruz
+    await handleEventClick(event);
+    // Sonra detay sayfasına yönlendiriyoruz
+    navigate(`/event/${event.id}`, { state: { event } });
+  };
 
   return (
     <div className="home-page-container">
@@ -17,10 +28,69 @@ export default function Home() {
       <nav className="category-navbar">
         <ul>
           <li>Konserler</li>
-          <li><Link to= "/theatre">Tiyatrolar</Link></li>
-          <li>Festivaller</li>
-          <li>Stand-up</li>
-          <li>Çocuk Etkinlikleri</li>
+          <li><Link to="/Theatre">Tiyatrolar</Link></li>
+          <li><Link to="/festival">Festivaller</Link></li>
+          <li><Link to="/stand-up">Stand-up</Link></li>
+          <li
+            className="artists-dropdown"
+            onMouseEnter={() => setShowArtistsDropdown(true)}
+            onMouseLeave={() => setShowArtistsDropdown(false)}
+          >
+            Sanatçılar
+            {showArtistsDropdown && (
+              <div className="artists-dropdown-content">
+                <div className="artists-grid">
+                  <div className="artist-category">
+                    <h3>🎵 Pop</h3>
+                    <div className="artist-list">
+                      {artists.pop?.map((artist, index) => (
+                        <div key={index} className="artist-item">
+                          <img src={artist.image} alt={artist.name} />
+                          <span>{artist.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="artist-category">
+                    <h3>🎤 Rap</h3>
+                    <div className="artist-list">
+                      {artists.rap?.map((artist, index) => (
+                        <div key={index} className="artist-item">
+                          <img src={artist.image} alt={artist.name} />
+                          <span>{artist.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="artist-category">
+                    <h3>🎸 Rock</h3>
+                    <div className="artist-list">
+                      {artists.rock?.map((artist, index) => (
+                        <div key={index} className="artist-item">
+                          <img src={artist.image} alt={artist.name} />
+                          <span>{artist.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="artist-category">
+                    <h3>🎼 Folk</h3>
+                    <div className="artist-list">
+                      {artists.folk?.map((artist, index) => (
+                        <div key={index} className="artist-item">
+                          <img src={artist.image} alt={artist.name} />
+                          <span>{artist.name}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </li>
         </ul>
       </nav>
 
@@ -40,12 +110,17 @@ export default function Home() {
 
       {/* Etkinlikler */}
       <main className="main-content">
-        <h2>Yaklaşan Konserler</h2>
+        <h2>Yaklaşan Etkinlikler</h2>
         {loading && <div>Yükleniyor...</div>}
         {!loading && consers.length === 0 && <div>Etkinlik bulunamadı.</div>}
         <div className="event-list">
           {consers.map(event => (
-            <div className="event-card" key={event.id}>
+            <div
+              className="event-card"
+              key={event.id}
+              onClick={() => handleEventCardClick(event)}
+              style={{ cursor: 'pointer' }}
+            >
               <div className="event-image">
                 <img src={event.images?.[0]?.url || ""} alt={event.name} />
               </div>

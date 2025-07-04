@@ -1,22 +1,34 @@
 import { useEffect } from "react";
 import { useConser } from "./ContextProvider"
-import { Link } from "react-router-dom";
+import { useWeather } from "./weatherProvider";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Theatre() {
   const { consers, loading, fetchTiyatros } = useConser();
+  const { handleEventClick } = useWeather();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchTiyatros();
   },[])
+
+  const handleEventCardClick = async (event) => {
+    // Önce hava durumunu çekiyoruz
+    await handleEventClick(event);
+    // Sonra detay sayfasına yönlendiriyoruz
+    navigate(`/event/${event.id}`, { state: { event } });
+  };
+
   return (
     <div className="home-page-container">
         <nav className="category-navbar">
         <ul>
           <li><Link to="/">Konserler</Link></li>
           <li><Link to= "/theatre">Tiyatrolar</Link></li>
-          <li>Festivaller</li>
-          <li>Stand-up</li>
-          <li>Çocuk Etkinlikleri</li>
+          <li><Link to="/festival">Festivaller</Link></li>
+          <li><Link to="/stand-up">Stand-up</Link></li>
+          <li><Link to="">Sanatçılar</Link></li>
+
         </ul>
       </nav>
 
@@ -39,7 +51,8 @@ export default function Theatre() {
       {!loading && consers.length === 0 && <div>Tiyatro etkinliği bulunamadı.</div>}
       <div className="event-list">
         {consers.map(event => (
-          <div className="event-card" key={event.id}>
+          <div className="event-card" key={event.id}
+          onClick={() => handleEventCardClick(event)}>
             <div className="event-image">
               <img src={event.images?.[0]?.url || ""} alt={event.name} />
             </div>

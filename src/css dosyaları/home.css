@@ -44,6 +44,7 @@ body {
   padding: 8px 18px;
   transition: color 0.2s;
 }
+
 .category-navbar a,
 .category-navbar .link {
   color: inherit !important;
@@ -58,6 +59,7 @@ body {
   color: inherit !important;
   text-decoration: none !important;
 }
+
 .category-navbar li::after {
   content: "";
   display: block;
@@ -236,3 +238,113 @@ body {
   background: #27ae60;
   color: #fff;
 }
+
+/* Sanatçılar Dropdown Stilleri */
+.artists-dropdown {
+  position: relative;
+}
+
+.artists-dropdown-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  background: #ffffff;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+  z-index: 1000;
+  padding: 40px 60px;
+  border-top: 3px solid #27ae60;
+  animation: dropdownSlide 0.3s ease-out;
+  margin-top: 56px;
+  /* navbar yüksekliği */
+}
+
+@keyframes dropdownSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.artists-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.artist-category h3 {
+  color: #27ae60;
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 20px 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid #eafaf1;
+}
+
+.artist-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.artist-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.artist-item:hover {
+  background: #f8fff8;
+  transform: translateX(5px);
+}
+
+.artist-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #eafaf1;
+}
+
+.artist-item span {
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Pop kategorisi için özel renk */
+.artist-category:nth-child(1) .artist-item:hover {
+  background: #fff5f5;
+  border-left: 3px solid #FF6B6B;
+}
+
+/* Rap kategorisi için özel renk */
+.artist-category:nth-child(2) .artist-item:hover {
+  background: #f0fffd;
+  border-left: 3px solid #4ECDC4;
+}
+
+/* Rock kategorisi için özel renk */
+.artist-category:nth-child(3) .artist-item:hover {
+  background: #f0f8ff;
+  border-left: 3px solid #45B7D1;
+}
+
+/* Folk kategorisi için özel renk */
+.artist-category:nth-child(4) .artist-item:hover {
+  background: #f8fff8;
+  border-left: 3px solid #96CEB4;
+}
+

@@ -1,0 +1,178 @@
+.event-detail-container {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #f8fff8 0%, #eafaf1 100%);
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+.event-detail-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
+/* Sol taraf - Etkinlik Bilgileri */
+.event-info-section {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(46, 204, 64, 0.1);
+    overflow: hidden;
+    border: 1px solid #eafaf1;
+}
+
+.event-header {
+    padding: 30px 30px 20px 30px;
+    border-bottom: 2px solid #f0f8f0;
+}
+
+.event-header h1 {
+    color: #145a32;
+    font-size: 32px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    line-height: 1.2;
+}
+
+.event-category {
+    background: #27ae60;
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.event-image-container {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+
+.event-detail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.event-image-container:hover .event-detail-image {
+    transform: scale(1.05);
+}
+
+.event-details {
+    padding: 30px;
+}
+
+.detail-item {
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0f8f0;
+}
+
+.detail-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.detail-item h3 {
+    color: #27ae60;
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0 0 10px 0;
+}
+
+.detail-item p {
+    color: #333;
+    font-size: 16px;
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+.venue-name {
+    font-weight: 600;
+    color: #145a32 !important;
+    font-size: 18px !important;
+}
+
+.venue-address {
+    color: #666 !important;
+    font-size: 14px !important;
+}
+
+/* Sağ taraf - Hava Durumu */
+.weather-section {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(46, 204, 64, 0.1);
+    padding: 30px;
+    border: 1px solid #eafaf1;
+    position: sticky;
+    top: 20px;
+}
+
+.weather-section h2 {
+    color: #27ae60;
+    font-size: 24px;
+    font-weight: 700;
+    margin: 0 0 25px 0;
+    text-align: center;
+}
+
+.weather-card {
+    background: linear-gradient(135deg, #eafaf1 0%, #f8fff8 100%);
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid #d4edda;
+}
+
+.weather-header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #d4edda;
+}
+
+.weather-header h3 {
+    color: #145a32;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 5px 0;
+}
+
+.weather-description {
+    color: #27ae60;
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0;
+    text-transform: capitalize;
+}
+
+.weather-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.weather-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.weather-label {
+    color: #666;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.weather-value {
+    color: #145a32;
+    font-size: 16px;
+    font-weight: 600;
+}
+
