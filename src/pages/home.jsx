@@ -1,62 +1,70 @@
-// src/pages/home.jsx
 import '../css dosyaları/home.css'
-function Home() {
+import { useConser } from '../ContextProvider';
+import { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+
+export default function Home() {
+  const { consers, loading, fetchConsers } = useConser();
+
+  useEffect(() => {
+    fetchConsers();
+    // eslint-disable-next-line
+  }, []);
+
   return (
-    <div className="home-container">
-      {/* Sol Sütun: Kategoriler veya Filtreler */}
-      <aside className="sidebar">
-        <h3>Kategoriler</h3>
+    <div className="home-page-container">
+      {/* Ekstra Navbar: Kategoriler */}
+      <nav className="category-navbar">
         <ul>
           <li>Konserler</li>
-          <li>Tiyatrolar</li>
+          <li><Link to= "/theatre">Tiyatrolar</Link></li>
           <li>Festivaller</li>
           <li>Stand-up</li>
           <li>Çocuk Etkinlikleri</li>
         </ul>
-      </aside>
+      </nav>
 
-      {/* Orta Sütun: Etkinlikler Listesi */}
+      <div className="filter-button">
+        <select name="city" id="city-filter">
+          <option value="">Şehir Seçiniz</option>
+          <option value="İstanbul">İstanbul</option>
+          <option value="Ankara">Ankara</option>
+          <option value="İzmir">İzmir</option>
+          <option value="Bursa">Bursa</option>
+          <option value="Antalya">Antalya</option>
+        </select>
+        <input type="date" name="date" id="date-filter" />
+        <button className="apply-filter">Filtrele</button>
+        <button className="reset-filter">Sıfırla</button>
+      </div>
+
+      {/* Etkinlikler */}
       <main className="main-content">
-        <h2>Yaklaşan Etkinlikler</h2>
+        <h2>Yaklaşan Konserler</h2>
+        {loading && <div>Yükleniyor...</div>}
+        {!loading && consers.length === 0 && <div>Etkinlik bulunamadı.</div>}
         <div className="event-list">
-          {/* Modern etkinlik kartları */}
-          <div className="event-card">
-            <div className="event-image">
-              <img src="" alt="Etkinlik Görseli" />
+          {consers.map(event => (
+            <div className="event-card" key={event.id}>
+              <div className="event-image">
+                <img src={event.images?.[0]?.url || ""} alt={event.name} />
+              </div>
+              <div className="event-details">
+                <h4>{event.name}</h4>
+                <p className="event-date">
+                  Tarih: {event.dates?.start?.localDate || "Bilinmiyor"}
+                </p>
+                <p className="event-location">
+                  Şehir: {event._embedded?.venues?.[0]?.city?.name || "Bilinmiyor"}
+                </p>
+                <span className="event-type">
+                  {event.classifications?.[0]?.segment?.name || "Etkinlik"}
+                </span>
+              </div>
             </div>
-            <div className="event-details">
-              <h4>Mor ve Ötesi Konseri</h4>
-              <p className="event-date">Tarih: 12 Temmuz 2024</p>
-              <p className="event-location">Şehir: İstanbul</p>
-              <span className="event-type">Konser</span>
-            </div>
-          </div>
-          <div className="event-card">
-            <div className="event-image">
-              <img src="" alt="Etkinlik Görseli" />
-            </div>
-            <div className="event-details">
-              <h4>Şehir Tiyatrosu: Hamlet</h4>
-              <p className="event-date">Tarih: 18 Temmuz 2024</p>
-              <p className="event-location">Şehir: Ankara</p>
-              <span className="event-type">Tiyatro</span>
-            </div>
-          </div>
-          <div className="event-card">
-            <div className="event-image">
-              <img src="" alt="Etkinlik Görseli" />
-            </div>
-            <div className="event-details">
-              <h4>Yaz Festivali</h4>
-              <p className="event-date">Tarih: 25 Temmuz 2024</p>
-              <p className="event-location">Şehir: İzmir</p>
-              <span className="event-type">Festival</span>
-            </div>
-          </div>
+          ))}
         </div>
       </main>
     </div>
   );
 }
-
-export default Home;

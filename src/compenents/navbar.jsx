@@ -9,16 +9,8 @@ export default function Navbar() {
                         <h2>Etkinlik</h2>
                     </div>
                     <div className="search">
-                        <input type="search" id="search" placeholder="search" />
+                        <input type="search" id="search" placeholder="Search" />
                         <button><i className="bi bi-search"></i></button>
-                    </div>
-                    <div className="link">
-                        <ul>
-                            <li>Anasayfa</li>
-                            <li>Konserler</li>
-                            <li>Tiyatrolar</li>
-                            <li>Festivaller</li>
-                        </ul>
                     </div>
                     <div className="profile">
                         <h2>Muhammet Kondu</h2>
