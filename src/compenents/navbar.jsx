@@ -15,32 +15,32 @@ export default function Navbar() {
     };
 
     return (
-        <>
-            <nav>
-                <div className="navabar">
-                    <div className="logo">
-                        <h2>Etkinlik</h2>
-                    </div>
-                    <div className="search">
-                        <form onSubmit={handleSearch}>
-                            <input
-                                type="search"
-                                id="search"
-                                placeholder="Search"
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                            />
-                            <button type="submit">
-                                <i className="bi bi-search"></i>
-                            </button>
-                        </form>
-                    </div>
-                    <div className="profile">
-                        <h2>Muhammet Kondu</h2>
-                        <img src="/mami.jpeg" alt="" />
-                    </div>
+        <nav className="navbar">
+            <div className="navbar-container">
+                <a href="/" className="navbar-brand">
+                    Etkinlik
+                </a>
+                
+                <div className="search-container">
+                    <form onSubmit={handleSearch}>
+                        <input
+                            type="search"
+                            className="search-input"
+                            placeholder="Etkinlik veya sanatçı ara..."
+                            value={searchTerm}
+                            onChange={(e) => setSearchTerm(e.target.value)}
+                        />
+                        <button type="submit" className="search-button">
+                            <i className="bi bi-search"></i>
+                        </button>
+                    </form>
                 </div>
-            </nav>
-        </>
+
+                <div className="profile">
+                    <h2>Muhammet Kondu</h2>
+                    <img src="/mami.jpeg" alt="Profil" />
+                </div>
+            </div>
+        </nav>
     )
 }

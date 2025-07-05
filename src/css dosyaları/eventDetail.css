@@ -1,8 +1,10 @@
 .event-detail-container {
     min-height: 100vh;
-    background: linear-gradient(135deg, #f8fff8 0%, #eafaf1 100%);
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     padding: 40px 20px;
     box-sizing: border-box;
+    color: #ffffff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .event-detail-content {
@@ -16,24 +18,31 @@
 
 /* DetailHeader component için stiller */
 .detail-header {
-    padding: 30px 30px 20px 30px;
-    border-bottom: 2px solid #f0f8f0;
+    padding: 40px;
+    border-bottom: 3px solid rgba(255, 107, 53, 0.3);
     display: flex;
     gap: 30px;
     align-items: center;
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 25px 25px 0 0;
+    backdrop-filter: blur(20px);
+    margin-bottom: 0;
 }
 
 .detail-image {
-    width: 200px;
-    height: 200px;
+    width: 250px;
+    height: 250px;
     object-fit: cover;
-    border-radius: 15px;
-    box-shadow: 0 8px 25px rgba(46, 204, 64, 0.2);
-    transition: transform 0.3s ease;
+    border-radius: 20px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    transition: all 0.4s ease;
+    border: 4px solid rgba(255, 107, 53, 0.3);
 }
 
 .detail-image:hover {
-    transform: scale(1.05);
+    transform: scale(1.05) rotate(2deg);
+    border-color: #ff6b35;
+    box-shadow: 0 25px 60px rgba(255, 107, 53, 0.4);
 }
 
 .detail-info {
@@ -41,58 +50,72 @@
 }
 
 .detail-info h1 {
-    color: #145a32;
-    font-size: 32px;
-    font-weight: 700;
-    margin: 0 0 15px 0;
+    color: #ffffff;
+    font-size: 2.8rem;
+    font-weight: 800;
+    margin: 0 0 20px 0;
     line-height: 1.2;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, #ffd23f, #ff6b35);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .detail-info p {
-    background: #27ae60;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: 600;
+    background: linear-gradient(135deg, #ff6b35, #ff8c42);
+    color: #1a1a2e;
+    padding: 10px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 700;
     display: inline-block;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
 }
 
 .detail-info a {
     display: inline-block;
-    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    background: linear-gradient(135deg, #ff6b35, #ff8c42);
     color: white;
     text-decoration: none;
-    padding: 12px 25px;
-    border-radius: 25px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(46, 204, 64, 0.3);
+    padding: 15px 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    transition: all 0.4s ease;
+    box-shadow: 0 8px 25px rgba(255, 107, 53, 0.4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 16px;
 }
 
 .detail-info a:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 25px rgba(46, 204, 64, 0.4);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 15px 40px rgba(255, 107, 53, 0.6);
+    background: linear-gradient(135deg, #ff8c42, #ff6b35);
 }
 
 /* Sol taraf - Etkinlik Bilgileri */
 .event-info-section {
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(46, 204, 64, 0.1);
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
     overflow: hidden;
-    border: 1px solid #eafaf1;
+    border: 2px solid rgba(255, 107, 53, 0.2);
+    backdrop-filter: blur(20px);
 }
 
 .event-details {
-    padding: 30px;
+    padding: 40px;
 }
 
 .detail-item {
-    margin-bottom: 25px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid #f0f8f0;
+    margin-bottom: 30px;
+    padding-bottom: 25px;
+    border-bottom: 2px solid rgba(255, 107, 53, 0.2);
+    position: relative;
 }
 
 .detail-item:last-child {
@@ -101,100 +124,192 @@
 }
 
 .detail-item h3 {
-    color: #27ae60;
-    font-size: 18px;
-    font-weight: 600;
-    margin: 0 0 10px 0;
+    color: #ffd23f;
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 15px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .detail-item p {
-    color: #333;
+    color: #ffffff;
     font-size: 16px;
-    margin: 5px 0;
-    line-height: 1.5;
+    margin: 8px 0;
+    line-height: 1.6;
+    font-weight: 500;
 }
 
 .venue-name {
-    font-weight: 600;
-    color: #145a32 !important;
-    font-size: 18px !important;
+    font-weight: 700;
+    color: #ff8c42 !important;
+    font-size: 20px !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
 }
 
 .venue-address {
-    color: #666 !important;
+    color: #cccccc !important;
     font-size: 14px !important;
+    font-style: italic;
 }
 
 /* Sağ taraf - Hava Durumu */
 .weather-section {
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(46, 204, 64, 0.1);
-    padding: 30px;
-    border: 1px solid #eafaf1;
+    background: rgba(26, 26, 46, 0.8);
+    border-radius: 25px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+    padding: 40px;
+    border: 2px solid rgba(255, 107, 53, 0.2);
+    backdrop-filter: blur(20px);
     position: sticky;
     top: 20px;
 }
 
 .weather-section h2 {
-    color: #27ae60;
-    font-size: 24px;
-    font-weight: 700;
-    margin: 0 0 25px 0;
+    color: #ffd23f;
+    font-size: 28px;
+    font-weight: 800;
+    margin: 0 0 30px 0;
     text-align: center;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background: linear-gradient(45deg, #ffd23f, #ff6b35);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .weather-card {
-    background: linear-gradient(135deg, #eafaf1 0%, #f8fff8 100%);
-    border-radius: 15px;
-    padding: 25px;
-    border: 1px solid #d4edda;
+    background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(22, 33, 62, 0.9));
+    border-radius: 20px;
+    padding: 30px;
+    border: 2px solid rgba(255, 107, 53, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 .weather-header {
     text-align: center;
-    margin-bottom: 20px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #d4edda;
+    margin-bottom: 25px;
+    padding-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 107, 53, 0.2);
 }
 
 .weather-header h3 {
-    color: #145a32;
-    font-size: 20px;
+    color: #ff8c42;
+    font-size: 24px;
     font-weight: 700;
-    margin: 0 0 5px 0;
+    margin: 0 0 8px 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .weather-description {
-    color: #27ae60;
-    font-size: 16px;
-    font-weight: 500;
+    color: #ffd23f;
+    font-size: 18px;
+    font-weight: 600;
     margin: 0;
     text-transform: capitalize;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .weather-details {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 20px;
 }
 
 .weather-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 0;
+    padding: 15px 0;
+    border-bottom: 1px solid rgba(255, 107, 53, 0.1);
+}
+
+.weather-item:last-child {
+    border-bottom: none;
 }
 
 .weather-label {
-    color: #666;
-    font-size: 14px;
-    font-weight: 500;
+    color: #cccccc;
+    font-size: 16px;
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .weather-value {
-    color: #145a32;
-    font-size: 16px;
-    font-weight: 600;
+    color: #ffd23f;
+    font-size: 18px;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
+/* Responsive tasarım */
+@media (max-width: 768px) {
+    .event-detail-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .detail-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 25px;
+        padding: 30px;
+    }
+
+    .detail-image {
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+    }
+
+    .detail-info h1 {
+        font-size: 2.2rem;
+    }
+
+    .weather-section {
+        position: static;
+    }
+
+    .event-details {
+        padding: 30px;
+    }
+
+    .weather-section {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .event-detail-container {
+        padding: 20px 10px;
+    }
+
+    .detail-image {
+        width: 150px;
+        height: 150px;
+    }
+
+    .detail-info h1 {
+        font-size: 1.8rem;
+    }
+
+    .detail-info a {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+
+    .event-details,
+    .weather-section {
+        padding: 20px;
+    }
+
+    .weather-section h2 {
+        font-size: 24px;
+    }
+
+    .weather-header h3 {
+        font-size: 20px;
+    }
+}
