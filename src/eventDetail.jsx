@@ -1,12 +1,13 @@
 import { useLocation } from 'react-router-dom';
 import { useWeather } from './weatherProvider';
 import './css dosyaları/eventDetail.css';
+import DetailHeader from './compenents/DetailHeader';
 
 export default function EventDetail() {
     const location = useLocation();
     const { weather } = useWeather();
 
-    // Etkinlik verisi location.state'den alıyoruz
+    // Etkinlik verisi location.state'den alınıyor
     const event = location.state?.event;
 
     if (!event) {
@@ -18,20 +19,13 @@ export default function EventDetail() {
             <div className="event-detail-content">
                 {/* Sol taraf - Etkinlik Detayları */}
                 <div className="event-info-section">
-                    <div className="event-header">
-                        <h1>{event.name}</h1>
-                        <span className="event-category">
-                            {event.classifications?.[0]?.segment?.name || "Etkinlik"}
-                        </span>
-                    </div>
-
-                    <div className="event-image-container">
-                        <img
-                            src={event.images?.[0]?.url || ""}
-                            alt={event.name}
-                            className="event-detail-image"
-                        />
-                    </div>
+                    <DetailHeader
+                        image={event.images?.[0]?.url}
+                        name={event.name}
+                        category={event.classifications?.[0]?.segment?.name || "Etkinlik"}
+                        link={event.url}
+                        linkLabel="Ticketmaster'da Görüntüle"
+                    />
 
                     <div className="event-details">
                         <div className="detail-item">

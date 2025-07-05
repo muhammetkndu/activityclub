@@ -14,21 +14,33 @@
     align-items: start;
 }
 
-/* Sol taraf - Etkinlik Bilgileri */
-.event-info-section {
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(46, 204, 64, 0.1);
-    overflow: hidden;
-    border: 1px solid #eafaf1;
-}
-
-.event-header {
+/* DetailHeader component için stiller */
+.detail-header {
     padding: 30px 30px 20px 30px;
     border-bottom: 2px solid #f0f8f0;
+    display: flex;
+    gap: 30px;
+    align-items: center;
 }
 
-.event-header h1 {
+.detail-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(46, 204, 64, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.detail-image:hover {
+    transform: scale(1.05);
+}
+
+.detail-info {
+    flex: 1;
+}
+
+.detail-info h1 {
     color: #145a32;
     font-size: 32px;
     font-weight: 700;
@@ -36,7 +48,7 @@
     line-height: 1.2;
 }
 
-.event-category {
+.detail-info p {
     background: #27ae60;
     color: #fff;
     padding: 8px 16px;
@@ -44,23 +56,33 @@
     font-size: 14px;
     font-weight: 600;
     display: inline-block;
+    margin-bottom: 20px;
 }
 
-.event-image-container {
-    width: 100%;
-    height: 300px;
+.detail-info a {
+    display: inline-block;
+    background: linear-gradient(45deg, #27ae60, #2ecc71);
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(46, 204, 64, 0.3);
+}
+
+.detail-info a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(46, 204, 64, 0.4);
+}
+
+/* Sol taraf - Etkinlik Bilgileri */
+.event-info-section {
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(46, 204, 64, 0.1);
     overflow: hidden;
-}
-
-.event-detail-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.3s ease;
-}
-
-.event-image-container:hover .event-detail-image {
-    transform: scale(1.05);
+    border: 1px solid #eafaf1;
 }
 
 .event-details {

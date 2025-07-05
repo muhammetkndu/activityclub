@@ -1,72 +1,77 @@
 .navabar {
-    background-color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 16px 32px;
-    border-bottom: 2px solid #2ecc40;
-    box-shadow: 0 2px 8px rgba(46, 204, 64, 0.05);
-  }
-  
-  .logo h2 {
-    color: #27ae60;
-    margin: 0;
-    font-weight: bold;
-    letter-spacing: 2px;
-  }
-  
-  .search {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  
-  .search input[type="search"] {
-    padding: 12px 12px;
-    border: 1px solid #27ae60;
-    width: 550px;
-    border-radius: 15px;
-    outline: none;
-    font-size: 16px;
-    background: #f8fff8;
-    color: #222;
-  }
-  
-  .search button {
-    left: 500px;
-    background-color: #27ae60;
-    border: none;
-    color: #fff;
-    padding: 12px 15px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 18px;
-    transition: background 0.2s;
-  }
-  
-  .search button:hover {
-    background-color: #219150;
-  }
-  
-  
-  .profile {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-  
-  .profile h2 {
-    color: #27ae60;
-    font-size: 18px;
-    margin: 0;
-    font-weight: 600;
-  }
-  
-  .profile img {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #27ae60;
-    object-fit: cover;
-    background: #eafaf1;
-  }
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 32px;
+  border-bottom: 2px solid #2ecc40;
+  box-shadow: 0 2px 8px rgba(46, 204, 64, 0.05);
+}
+
+.logo h2 {
+  color: #27ae60;
+  margin: 0;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search form {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.search input[type="search"] {
+  padding: 12px 12px;
+  border: 1px solid #27ae60;
+  width: 550px;
+  border-radius: 15px;
+  outline: none;
+  font-size: 16px;
+  background: #f8fff8;
+  color: #222;
+}
+
+.search button {
+  background-color: #27ae60;
+  border: none;
+  color: #fff;
+  padding: 12px 15px;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background 0.2s;
+}
+
+.search button:hover {
+  background-color: #219150;
+}
+
+
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.profile h2 {
+  color: #27ae60;
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+}
+
+.profile img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #27ae60;
+  object-fit: cover;
+  background: #eafaf1;
+}

@@ -84,6 +84,26 @@ body {
   background: #145a32;
 }
 
+/* Filtreleme sonuç mesajı */
+.filter-results {
+  background: #eafaf1;
+  border: 2px solid #27ae60;
+  border-radius: 10px;
+  padding: 12px 20px;
+  margin: 0 24px 20px 24px;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(46, 204, 64, 0.1);
+}
+
+.filter-results p {
+  color: #27ae60;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 0;
+}
+
+
+
 .main-content {
   width: 100%;
   background: transparent;
@@ -112,73 +132,74 @@ body {
   box-sizing: border-box;
 }
 
-.event-card {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 4px 16px rgba(46, 204, 64, 0.10);
-  overflow: hidden;
-  border: 1.5px solid #eafaf1;
-  transition: box-shadow 0.2s, transform 0.2s;
-  max-width: 220px;
-  min-width: 180px;
-  width: 100%;
-  box-sizing: border-box;
+.home-page-container .event-card {
+  display: flex !important;
+  flex-direction: column !important;
+  background: #fff !important;
+  border-radius: 14px !important;
+  box-shadow: 0 4px 16px rgba(46, 204, 64, 0.10) !important;
+  overflow: hidden !important;
+  border: 1.5px solid #eafaf1 !important;
+  transition: box-shadow 0.2s, transform 0.2s !important;
+  max-width: 220px !important;
+  min-width: 180px !important;
+  width: 100% !important;
+  box-sizing: border-box !important;
+  cursor: pointer !important;
 }
 
-.event-card:hover {
-  box-shadow: 0 8px 32px rgba(46, 204, 64, 0.18);
-  transform: translateY(-4px) scale(1.02);
+.home-page-container .event-card:hover {
+  box-shadow: 0 8px 32px rgba(46, 204, 64, 0.18) !important;
+  transform: translateY(-4px) scale(1.02) !important;
 }
 
-.event-image {
-  width: 100%;
-  height: 120px;
-  background: #eafaf1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+.home-page-container .event-image {
+  width: 100% !important;
+  height: 120px !important;
+  background: #eafaf1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  overflow: hidden !important;
 }
 
-.event-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+.home-page-container .event-image img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  display: block !important;
 }
 
-.event-details {
-  padding: 14px 12px 12px 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 7px;
+.home-page-container .event-details {
+  padding: 14px 12px 12px 12px !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 7px !important;
 }
 
-.event-details h4 {
-  margin: 0;
-  color: #145a32;
-  font-size: 17px;
-  font-weight: 700;
+.home-page-container .event-details h4 {
+  margin: 0 !important;
+  color: #145a32 !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
 }
 
-.event-date,
-.event-location {
-  color: #27ae60;
-  font-size: 14px;
-  margin: 0;
+.home-page-container .event-date,
+.home-page-container .event-location {
+  color: #27ae60 !important;
+  font-size: 14px !important;
+  margin: 0 !important;
 }
 
-.event-type {
-  align-self: flex-start;
-  background: #27ae60;
-  color: #fff;
-  padding: 2px 10px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
-  margin-top: 4px;
+.home-page-container .event-type {
+  align-self: flex-start !important;
+  background: #27ae60 !important;
+  color: #fff !important;
+  padding: 2px 10px !important;
+  border-radius: 12px !important;
+  font-size: 12px !important;
+  font-weight: 500 !important;
+  margin-top: 4px !important;
 }
 
 .filter-button {
@@ -192,8 +213,7 @@ body {
   box-shadow: 0 2px 8px rgba(46, 204, 64, 0.07);
 }
 
-.filter-button select,
-.filter-button input[type="date"] {
+.filter-button select {
   padding: 7px 14px;
   border: 1.5px solid #27ae60;
   border-radius: 6px;
@@ -204,8 +224,7 @@ body {
   transition: border 0.2s;
 }
 
-.filter-button select:focus,
-.filter-button input[type="date"]:focus {
+.filter-button select:focus {
   border-color: #145a32;
 }
 
@@ -238,113 +257,3 @@ body {
   background: #27ae60;
   color: #fff;
 }
-
-/* Sanatçılar Dropdown Stilleri */
-.artists-dropdown {
-  position: relative;
-}
-
-.artists-dropdown-content {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  width: 100vw;
-  background: #ffffff;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
-  z-index: 1000;
-  padding: 40px 60px;
-  border-top: 3px solid #27ae60;
-  animation: dropdownSlide 0.3s ease-out;
-  margin-top: 56px;
-  /* navbar yüksekliği */
-}
-
-@keyframes dropdownSlide {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.artists-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.artist-category h3 {
-  color: #27ae60;
-  font-size: 20px;
-  font-weight: 700;
-  margin: 0 0 20px 0;
-  padding-bottom: 10px;
-  border-bottom: 2px solid #eafaf1;
-}
-
-.artist-list {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.artist-item {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 8px 12px;
-  border-radius: 10px;
-  transition: all 0.2s ease;
-  cursor: pointer;
-}
-
-.artist-item:hover {
-  background: #f8fff8;
-  transform: translateX(5px);
-}
-
-.artist-item img {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 2px solid #eafaf1;
-}
-
-.artist-item span {
-  color: #333;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-/* Pop kategorisi için özel renk */
-.artist-category:nth-child(1) .artist-item:hover {
-  background: #fff5f5;
-  border-left: 3px solid #FF6B6B;
-}
-
-/* Rap kategorisi için özel renk */
-.artist-category:nth-child(2) .artist-item:hover {
-  background: #f0fffd;
-  border-left: 3px solid #4ECDC4;
-}
-
-/* Rock kategorisi için özel renk */
-.artist-category:nth-child(3) .artist-item:hover {
-  background: #f0f8ff;
-  border-left: 3px solid #45B7D1;
-}
-
-/* Folk kategorisi için özel renk */
-.artist-category:nth-child(4) .artist-item:hover {
-  background: #f8fff8;
-  border-left: 3px solid #96CEB4;
-}
-
